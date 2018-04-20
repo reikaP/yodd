@@ -106,21 +106,21 @@
         <span class="column is-narrow">
             
             
-            (510 kata)
+            (537 kata)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p>Mungkin ini bisa dibilang post pertama hehe<br>Kali ini sesuai judul mau ngebahas cara mengintegrasikan VueJS dengan Algolia.<br><a id="more"></a><br>Pertama apa itu Algolia?</p>
-<p>Algolia semacam tempat database hosting yang umumnya dijadikan sebagai hosted search API. Kaya kita mau bangun search engine yang butuh request cepat, tidak mau memikirkan stress dengan server load tinggi karena request yang banyak. Bisa diatasi dengan Algolia.<br>Hampir mirip-mirip lah dengan hosted ElasticSearch</p>
+<p>Algolia itu seperti hosted search engine API. Sesuai pengertiannya resource atau database kita akan disimpan ke server Algolia yang akan dijadikan API untuk keperluan searching.<br>Hampir mirip-mirip lah dengan ElasticSearch.</p>
 <p>Nah keunggulan Algolia ini respon lebih cepat ketika melakukan query karena sesuai apa yang mereka bilang.</p>
 <p><a href="">https://www.algolia.com/infra</a></p>
 <blockquote>
 <p>Our search API powers billions of queries for thousands of companies every month, delivering relevant results in under 100ms anywhere in the world.</p>
 </blockquote>
-<p>Juga memiliki DSN (Distributed Search Network) sebagai infrastrukturnya.</p>
-<p>Contoh aja<br><img src="\images\algo-1.gif" alt=""></p>
+<p>Juga memiliki DSN (Distributed Search Network) sebagai infrastrukturnya. Jadi setiap melakukan pencarian kamu akan diarahkan server terdekat mereka.<br>Sebagai contoh kamu berada di Jakarta, Indonesia mau mencari data, mak akan diarahkan ke server Singapore dan latency tentunya akan lebih kecil.<br>Sama seperti sistemnya CDN yang biasa digunakan untuk distribusi konten.</p>
+<p>Contoh implementasi<br><img src="\images\algo-1.gif" alt=""></p>
 <p>Langsung ke tutorialnya</p>
 <h3 id="Membuat-Akun"><a href="#Membuat-Akun" class="headerlink" title="Membuat Akun"></a>Membuat Akun</h3><p>Sebelum menggunakan Algolia kamu dihadapkan untuk mendaftar terlebih dahulu. Kali ini saya menggunakan akun Free (Community), dan harus mencantumkan banner “Search by Algolia”.</p>
 <p><img src="\images\algo-plan.png" alt=""></p>
@@ -140,7 +140,7 @@
 <p>Hasilnya</p>
 <p><img src="\images\demo-algo.gif" alt=""></p>
 <p>Silahkan kreasikan design kamu dan untuk selengkapnya mengenai component pada InstantSearch<br>Bisa baca <a href="https://community.algolia.com/vue-instantsearch/components/index.html" target="_blank" rel="noopener">dokumentasi</a> ini.</p>
-<h3 id="Kesimpulan"><a href="#Kesimpulan" class="headerlink" title="Kesimpulan"></a>Kesimpulan</h3><p>Algolia ini sangat cocok buat kamu yang pengen buat Search Engine sendiri namun respon yang cepat dan tidak ribet dengan kodingan mu sendiri. Fitur yang ditawarkan pada akun Free itu lebih dari cukup untuk saya. Dengan maximum 30 queries per detik dan bisa diatur batasannya di pengaturan API dan penyimpanan records sekitar 10k dan 1000 operations itu cukup untuk penggunaan yang… ya lumayanlah :)<br>Ada juga akun Essentials yang bisa kamu dapatkan <em>gratis</em> kalau project yang kamu buat dan gunakan itu berbasis Open Source. Perlu dikualifikasi dulu deh :D</p>
+<h3 id="Kesimpulan"><a href="#Kesimpulan" class="headerlink" title="Kesimpulan"></a>Kesimpulan</h3><p>Algolia ini sangat cocok buat kamu yang pengen buat Search Engine sendiri namun respon yang cepat dan tidak ribet dengan kodinganmu sendiri. Fitur yang ditawarkan pada akun Free itu lebih dari cukup untuk saya. Dengan maximum 30 queries per detik dan bisa diatur batasannya di pengaturan API dan penyimpanan records sekitar 10k dan 1000 operations itu cukup untuk penggunaan yang… ya lumayanlah :)<br>Ada juga akun Essentials yang bisa kamu dapatkan <em>gratis</em> kalau project yang kamu buat dan gunakan itu berbasis Open Source. Perlu dikualifikasi dulu deh :D</p>
 
     
     </div>
