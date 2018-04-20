@@ -111,14 +111,13 @@
         <span class="column is-narrow">
             
             
-            (561 kata)
+            (565 kata)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>Oke.. Laravel… Hmm pasti sudah banyak yang tahu dengan PHP framework yang memang ngehits dan jadi top tier untuk framework PHP terbaik saat ini. Atau kamu sudah membuat aplikasi yang wow dengan framework Laravel..? Tidak lupa dengan packagenya, mungkin kamu juga pasti sering-sering menginstall beberapa package yang ada di Packagist.<br>Lalu..?<br>Yang jadi pertanyaan. Bagaimana caranya mereka membuat package tersebut?<br><a id="more"></a></p>
-<p>Saatnya saya akan menjelaskan caranya :)</p>
+        <p>Oke.. Laravel… Hmm pasti sudah banyak yang tahu dengan PHP framework yang memang ngehits dan jadi top tier untuk framework PHP terbaik saat ini. Atau kamu sudah membuat aplikasi yang wow dengan framework Laravel..? Tidak lupa dengan packagenya, mungkin kamu juga pasti sering-sering menginstall beberapa package yang ada di Packagist.<br>Lalu..?<br>Yang jadi pertanyaan. Bagaimana caranya mereka membuat package tersebut?<br><a id="more"></a><br><img src="\images\composer-require.gif" alt=""><br>Saatnya saya akan menjelaskan caranya :)</p>
 <h5 id="Pastikan-kamu-sudah-menginstall-Laravel-sebelumnya"><a href="#Pastikan-kamu-sudah-menginstall-Laravel-sebelumnya" class="headerlink" title="Pastikan kamu sudah menginstall Laravel sebelumnya"></a>Pastikan kamu sudah menginstall Laravel sebelumnya</h5><h3 id="Membuat-folder-untuk-package"><a href="#Membuat-folder-untuk-package" class="headerlink" title="Membuat folder untuk package"></a>Membuat folder untuk package</h3><p>Saya akan membuat package tersebut didalam folder <strong>packages</strong> bukan didalam vendor. Karena untuk folder vendor hanya boleh diatur dengan Composer. Jadi bisa dibilang folder vendor itu tidak boleh diutak-atik. Kalau diganti atau dimodifikasi, setiap kita melakukan <code>composer update</code>. Data yang berada didalam vendor dikembalikan seperti asal mulanya.</p>
 <p>Struktur nya seperti akan menjadi seperti ini <code>packages/&lt;user&gt;/&lt;repo&gt;/src</code><br><img src="\images\imgpost1.png" alt=""></p>
 <p>Folder sudah dibuat.. Lanjut dengan membuat composer.json pada packagenya<br><code>composer init</code></p>
