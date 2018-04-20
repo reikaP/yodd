@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Membuat Laravel Package - Yodd</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archive">Arsip</a>
+            
+            <a class="navbar-item "
+               href="/tags">Tag</a>
+            
+            <a class="navbar-item "
+               href="/about">Tentang</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            <a class="navbar-item" href="https://shikakun.moe">Shikakun</a>
+            
+            <a class="navbar-item search" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" href="https://github.com/shikakunhq">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            <a class="navbar-item" href="https://www.facebook.com/profile.php?id=100014195740109">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+               
+            <a class="navbar-item" href="https://twitter.com/axlyody">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Membuat Laravel Package
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-04-20T08:17:00.000Z" itemprop="datePublished">20-04-2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/category/ngoding/">ngoding</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            (561 kata)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>Oke.. Laravel… Hmm pasti sudah banyak yang tahu dengan PHP framework yang memang ngehits dan jadi top tier untuk framework PHP terbaik saat ini. Atau kamu sudah membuat aplikasi yang wow dengan framework Laravel..? Tidak lupa dengan packagenya, mungkin kamu juga pasti sering-sering menginstall beberapa package yang ada di Packagist.<br>Lalu..?<br>Yang jadi pertanyaan. Bagaimana caranya mereka membuat package tersebut?<br><a id="more"></a></p>
+<p>Saatnya saya akan menjelaskan caranya :)</p>
+<h5 id="Pastikan-kamu-sudah-menginstall-Laravel-sebelumnya"><a href="#Pastikan-kamu-sudah-menginstall-Laravel-sebelumnya" class="headerlink" title="Pastikan kamu sudah menginstall Laravel sebelumnya"></a>Pastikan kamu sudah menginstall Laravel sebelumnya</h5><h3 id="Membuat-folder-untuk-package"><a href="#Membuat-folder-untuk-package" class="headerlink" title="Membuat folder untuk package"></a>Membuat folder untuk package</h3><p>Saya akan membuat package tersebut didalam folder <strong>packages</strong> bukan didalam vendor. Karena untuk folder vendor hanya boleh diatur dengan Composer. Jadi bisa dibilang folder vendor itu tidak boleh diutak-atik. Kalau diganti atau dimodifikasi, setiap kita melakukan <code>composer update</code>. Data yang berada didalam vendor dikembalikan seperti asal mulanya.</p>
+<p>Struktur nya seperti akan menjadi seperti ini <code>packages/&lt;user&gt;/&lt;repo&gt;/src</code><br><img src="\images\imgpost1.png" alt=""></p>
+<p>Folder sudah dibuat.. Lanjut dengan membuat composer.json pada packagenya<br><code>composer init</code></p>
+<p>atau kalau kebingungan ngisinya ya pake ini aja :)<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">"name": "yodd/githubprofile",</span><br><span class="line">"description": "Testtt...",</span><br><span class="line">"type": "library",</span><br><span class="line">"license": "MIT",</span><br><span class="line">"minimum-stability": "dev",</span><br><span class="line">"autoload": &#123;</span><br><span class="line">    "psr-4": &#123;</span><br><span class="line">        "Yodd\\VNDBClient\\": "src/"</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">"authors": [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"Yodd"</span>,</span><br><span class="line">        <span class="attr">"email"</span>: <span class="string">"kao@shikakun.moe"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h3 id="Mengintegrasikan-Package-yang-dibuat-ke-App-Laravel"><a href="#Mengintegrasikan-Package-yang-dibuat-ke-App-Laravel" class="headerlink" title="Mengintegrasikan Package yang dibuat ke App Laravel"></a>Mengintegrasikan Package yang dibuat ke App Laravel</h3><p>Agar terbaca dengan app Laravel yang dibuat sebelumnya. Kita perlu mengintegrasikan atau menginclude package tersebut. Jadi package tersebut dapat kita panggil langsung dari folder package tersebut.</p>
+<p>Tambahkan package tadi ke composer.json app kamu (bukan composer yang dipackage) di PSR-4<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">"autoload": &#123;</span><br><span class="line">   "classmap": [</span><br><span class="line">     "database/seeds",</span><br><span class="line">     <span class="string">"database/factories"</span></span><br><span class="line">   ],</span><br><span class="line">   "psr-4": &#123;</span><br><span class="line">     "App\\": "app/",</span><br><span class="line">     "Yodd\\GitHubProfile\\": "packages/yodd/githubprofile/src"</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure></p>
+<p>Kemudian load package tersebut dengan composer<br><code>composer dump-autoload</code></p>
+<h3 id="Menambahkan-Provider-di-Package"><a href="#Menambahkan-Provider-di-Package" class="headerlink" title="Menambahkan Provider di Package"></a>Menambahkan Provider di Package</h3><p>Kembali ke folder package tadi. Pada tahap ini dimana paket tersebut akan dimuat/boot pada app Laravel kita.</p>
+<p>Arahkan ke root app Laravel, dan buat providernya<br><code>php artisan make:provider GithubProfileServiceProvider</code></p>
+<p>Secara otomatis provider yang dibuat tadi akan masuk ke folder <code>app/Providers</code><br><img src="\images\imgpost2.png" alt=""></p>
+<p>Pindahkan file tersebut ke folder <code>src</code> pada package yang kita buat<br><img src="\images\imgpost6.png" alt=""></p>
+<p>Buka file tersebut dan ubah namespacenya user\package<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Yodd</span>\<span class="title">GitHubProfile</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GithubProfileServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Bootstrap services.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Register services.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Membuat-Controller"><a href="#Membuat-Controller" class="headerlink" title="Membuat Controller"></a>Membuat Controller</h3><p>Pada tahap ini kita perlu meregister controller agar dapat diload oleh Laravel. Bisa diperhatikan pada <code>public function register()</code>… yup disitu akan kita load Controllernya</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;app-&gt;make(<span class="string">'Yodd\GithubProfile\Controller'</span>);</span><br><span class="line">&#123;</span><br></pre></td></tr></table></figure>
+<p>Selanjutnya kita buat file Controller.php<br>Sebagai contoh saya ingin mengambil data dari Github API</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Yodd</span>\<span class="title">GithubProfile</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GithubProfileController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">user</span><span class="params">($user)</span> </span>&#123;</span><br><span class="line">        $guzzle = <span class="keyword">new</span> \GuzzleHttp\Client();</span><br><span class="line">        $res = $guzzle-&gt;request(<span class="string">'GET'</span>, <span class="string">'https://api.github.com/users/'</span>.$user);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> $res-&gt;getBody();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Nah disini bisa extend Controller yang berada pada <code>App\Http\Controller</code></p>
+<h3 id="Percobaan"><a href="#Percobaan" class="headerlink" title="Percobaan"></a>Percobaan</h3><p>Setelah package dibuat saatnya kita panggil.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Yodd</span>\<span class="title">GithubProfile</span>\<span class="title">GithubProfileController</span>;</span><br><span class="line"></span><br><span class="line">class HomeController() &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> GithubProfileController::user(<span class="string">'axlyody'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Hasilnya</p>
+<p><img src="\images\imgpost7.png" alt=""></p>
+<p>Yup selesai membuat package, sekarang saatnya dipublish ke packagist. Untuk mempublishnya kamu harus memerhatikan composer.json dan folder package harus sesuai.</p>
+<p>Semisal <code>yodd/githubprofile</code> itu akan dijadikan sebagai instalasi di packagist<br><code>composer require yodd/githubprofile:dev-master</code>. Karena kamu push dimaster, untuk membuat versi kamu harus mempushnya pada branch GitHub.</p>
+<ul>
+<li>Push packagemu ke <a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+<li>Lakukan registrasi di <a href="https://packagist.org" target="_blank" rel="noopener">Packagist</a></li>
+<li>Hubungkan GitHub ke Packagist</li>
+<li>Tambah package yang sudah dipush tadi ke Packagist</li>
+</ul>
+<p>Bisa dibaca lebih lanjut pada <a href="https://packagist.org/about" target="_blank" rel="noopener">dokumentasi Packagist</a>.</p>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/laravel/">#laravel</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/php/">#php</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/Integrasi-VueJS-dengan-Algolia.html">Integrasi VueJS dengan Algolia</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5ad999a4b303230013e85d61&amp;product=inline-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Komentar</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yodd.me/mbuat-Laravel-Package.html';
+        this.page.identifier = 'mbuat-Laravel-Package.html';
+        
+        this.language = 'en';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'axlyody' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2018 Axl Yody&nbsp;
+                Didukung oleh <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+</script>
+
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Cari sesuatu..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Post',
+                PAGES: 'Page',
+                CATEGORIES: 'Kategori',
+                TAGS: 'Tag',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>
